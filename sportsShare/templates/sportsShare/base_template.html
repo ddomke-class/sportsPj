@@ -1,8 +1,11 @@
 {% load static %}
+{% load django_bootstrap5 %}
 
 <!DOCTYPE html>
 <html lang="en">
  <head>
+  {% bootstrap_css %} {% bootstrap_javascript %}
+  {% bootstrap_messages %}
    <title>UCCS CS Students</title>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,8 +27,18 @@
            <div class="navbar-nav">
              <!--  {% url 'index' %}  is defined in url path to dynamically create url -->
              <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
-             <a class="nav-link" href="#">Menu 2</a>
-             <a class="nav-link" href="#">Menu 3</a>
+             <div class="btn-group">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                Menu
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">View Stat Sheets</a></li>
+                <li><a class="dropdown-item" href="#">My Stat Sheets</a></li>
+                <li><a class="dropdown-item" href="#">Games on Now</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Trending</a></li>
+              </ul>
+            </div>
              {% if user.is_authenticated %}
                <a class="nav-link" href="{% url 'logout' %}?next={{ request.path }}">Logout {{user}}</a>
              {% else %}
