@@ -1,10 +1,21 @@
 <!-- inherit from base.html-->
 {% extends "sportsShare/base_template.html" %}
-
+{% load static %}
 <!-- Replace block content in base_template.html -->
 {% block content %}
-<h1>Computer Science Portfolios</h1>
+<h1>Welcome to Sports Share! Here, You're the Sports Guru</h1>
 
-<h2>More to come from [and your name goes here]</h2>
-
+<h2>From "know it alls" to the "new kid on the block" Sports Share has Something for Everyone</h2>
+<br/>
+<h3>Get Custom Stat Sheets directly from Your Community Hangout</h3>
+<img src="{% static 'images/home_bar.gif' %}" class="img-fluid" alt="Responsive image">
+<br/>
+<br/>
+<h3>Make Custom Stat Sheets for your Customers, Family or Rivals</h3>
+<img src="{% static 'images/sideBySide.gif' %}" class="img-fluid" alt="Responsive image">
+<br/>
+<br/>
+<h3>Learn Something New about your Spouses Team</h3>
+<img src="{% static 'images/coupleWatchingSports.gif' %}" class="img-fluid" alt="Responsive image">
+<br/>
 {% endblock %}
