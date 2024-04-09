@@ -6,4 +6,7 @@ def index(request):
 # Render the HTML template index.html with the data in the context variable.
    return render( request, 'sportsShare/index.html')
 
-# Create your views here.
+def myStatsheets(request):
+
+# Render the HTML template index.html with the data in the context variable.
+   return render( request, 'sportsShare/myStatsheets.html')
