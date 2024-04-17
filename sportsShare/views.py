@@ -13,4 +13,5 @@ def myStatsheets(request):
    print("active Stats. query set", listSheets)
    return render( request, 'sportsShare/myStatsheets.html')
 
-
+def statsheetDetail(request):
+   return render( request, 'sportsShare/statsheetDetail.html')

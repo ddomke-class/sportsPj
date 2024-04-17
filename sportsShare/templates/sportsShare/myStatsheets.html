@@ -5,12 +5,15 @@
 {% block content %}
 <h1>Your Statsheets</h1>
 <br/>
-{{listSheets}}
-    {% for Statsheets in listSheets %}
-        Title: {{Statsheets.title}}
+    {% for statsheet in listSheets %}
+        Title: {{ statsheet.title }}
             <p><strong>Description: {{Statsheets.description}}
-
+                
             </strong></p>
+            
+<a href="{statsheet.get_absolute_url}}" class="btn btn-primary" role="button">View</a>
+<a href="{statsheet.get_absolute_url}}" class="btn btn-primary" role="button">Update</a>
+<a href="{statsheet.get_absolute_url}}" class="btn btn-primary" role="button">Delete</a>
         </li>
     {% endfor %}
 <a href="{statsheet.get_absolute_url}}" class="btn btn-primary" role="button">View</a>
