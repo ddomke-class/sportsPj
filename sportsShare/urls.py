@@ -1,5 +1,7 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
+
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
 #path function defines a url pattern
@@ -10,6 +12,7 @@ urlpatterns = [
 path('', views.index, name='index'),
 path('myStatsheets', views.myStatsheets),
 path('statsheetDetail', views.statsheetDetail),
-
+path("accounts/", include("django.contrib.auth.urls")),
+path('accounts/register/', views.registerPage, name = 'register_page'),
 
 ]

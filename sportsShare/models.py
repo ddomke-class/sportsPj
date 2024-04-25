@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 class Binder(models.Model):
 #List of choices for major value in database, human readable name
@@ -33,6 +34,7 @@ class Guru(models.Model):
     experience = models.PositiveSmallIntegerField(default=0)
     Type = models.CharField(max_length=200, choices=TYPEGURU, default='Newbie')
     binder = models.OneToOneField(Binder, on_delete=models.CASCADE, null=True)
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
 
     #Define default String to return the name for representing the Model object."
     def __str__(self):
