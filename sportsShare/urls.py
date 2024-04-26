@@ -15,5 +15,6 @@ path('statsheetDetail', views.statsheetDetail),
 path("accounts/", include("django.contrib.auth.urls")),
 path('accounts/register/', views.registerPage, name = 'register_page'),
 path('accounts/login/', views.loginPage, name = 'login_page'),
+path('user/', views.userPage, name = 'user_page'),
 
 ]

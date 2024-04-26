@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import ListView, DetailView
 from .models  import *
-from .forms import CreateUserForm
+from .forms import CreateUserForm, GuruForm
 from django.contrib import messages
 from django.contrib.auth.models import Group
 
@@ -44,3 +44,18 @@ def registerPage(request):
       
    context ={'form':form}
    return render(request, 'accounts/register.html', context)
+
+# @login_required(login_url='login')
+# @allowed_users(allowed_roles=['guru'])
+def userPage(request):
+   guru = request.user.guru
+   form = GuruForm(instance = guru)
+   print('guru', guru)
+   binder = guru.binder
+   print(binder)
+   if request.method == 'POST':
+      form = GuruForm(request.POST, request.FILES, instance=guru)
+      if form.is_valid():
+         form.save()
+   context = {'binders':binder, 'form':form}
+   return render(request, 'sportsShare/user.html', context)

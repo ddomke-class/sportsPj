@@ -1,0 +1,18 @@
+{% extends 'sportsShare/base_template.html' %}
+{% block content %}
+<h3>Sports Share Guru Profile</h3>
+Welcome, {{user}}
+    binder id: {{user.guru.binder.id}}
+        <p><strong>Binder:{{ user.guru.binder.title }}
+            <a class="btn btn-primary" href="{{ user.guru.binder.get_absolute_url }}" role="button">View</a>
+            <a class="btn btn-primary" href="{% url 'update_binder' user.guru.binder.id %}" role="button">Update</a>
+
+    <h3>Guru Information</h3>
+
+    <form method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="btn btn-primary" type="submit" name = "Update">
+    </form>
+    </div>
+{% endblock %}
