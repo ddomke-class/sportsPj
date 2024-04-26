@@ -9,7 +9,6 @@ from django.contrib.auth.models import Group
 
 # Create your views here.
 def index(request):
-
 # Render the HTML template index.html with the data in the context variable.
    return render( request, 'sportsShare/index.html')
 
@@ -20,6 +19,9 @@ def myStatsheets(request):
 
 def statsheetDetail(request):
    return render( request, 'sportsShare/statsheetDetail.html')
+
+def loginPage(request):
+   return render( request, 'accounts/login.html')
 
 def registerPage(request):
 
